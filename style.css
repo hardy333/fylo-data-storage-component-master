@@ -110,9 +110,14 @@ button{
     align-items: center;
     justify-content: center;
 
+
+}
+.btn-icon:hover{
+    filter: brightness(150%);
 }
 .btn-icon img{
-    width: 1.4rem;
+    width: 1.9rem;
+
 }
 .btn-icon + .btn-icon{
     margin-left: 1.5rem;
@@ -150,12 +155,12 @@ button{
 }
 
 .storage__thread{
-    --thred-height: 2.5rem;
-    --thred-padding: 4px;
+    --thred-height: 2rem;
+    --thred-padding: 2px;
     width: 100%;
     height: var(--thred-height);
     margin: 2rem 0rem;
-    background-color: var(--Very-Dark-Blue);
+    background-color: #151E47;
 
     border-radius: 2rem;
 
@@ -183,18 +188,36 @@ button{
 }
 
 .storage__thread__inner{
-    width: 80%;
     background: var(--Gradient);
     border-radius: inherit;
-
     position: relative;
+    width: calc(var(--thred-height) - 2*var(--thred-padding));
+
+    --baz: cubic-bezier(.43,1.01,.75,.11);
+    
+    animation: widthAnim 2.9s var(--baz);
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes widthAnim {
+
+
+    to{
+        width: 80%;
+
+
+    }
+    
+}
+.storage__thread__inner:hover{
+    filter: brightness(120%);
 }
 
 .storage__thread__inner::before{
     content: "";
     display: block;
     
-    --offset: 1px;
+    --offset: 1.5px;
     --size: calc(var(--thred-height) - 2 * var(--thred-padding) - 2 * var(--offset));
 
     position: absolute;
@@ -204,10 +227,11 @@ button{
     height: var(--size);
     width: var(--size);
 
-    background-color: var(--Pale-Blue);
+    background-color: #fff;
     border-radius: 100%;
-
+    cursor: pointer;
 }
+
 
 .storage__gb-left{
     padding: 1rem 2.5rem;
@@ -223,7 +247,10 @@ button{
     align-items: center;
     justify-content: center;
 
-
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
 }
 
 .storage__gb-left::before{
@@ -244,6 +271,10 @@ button{
     border-top-color: #fff;
     border-right: 0px;
     border-bottom: 0px;
+
+}
+.storage__gb-left:hover .storage__gb-left__text{
+    color: hsl(240, 33%, 1%);
 }
 
 .storage__gb-left__number{
@@ -324,6 +355,11 @@ button{
         transform: translate(47%, -30%);
 
     }
+
+    .storage__gb-left__number{
+        font-size: 4rem;
+    }
+
 
     
 }
